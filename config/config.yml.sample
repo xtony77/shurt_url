@@ -1,0 +1,13 @@
+defaults: &defaults
+  facebook_app_id: ""
+  facebook_secret: ""
+
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
