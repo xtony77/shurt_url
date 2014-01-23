@@ -33,7 +33,7 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-.project
+.projecto
 
 # config setting
 /config/*.yml
