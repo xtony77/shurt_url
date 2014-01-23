@@ -57,7 +57,19 @@
         <p>
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p> -->
-        
+        <form name='form1' method='post' action=''>
+          請輸入網址 <input type='text' name='url' value='' required>
+          <button class='btn'>產生短網址</button>
+        </form>
+        <br>
+        <table class='table'>
+          <% @index.each do |index| %>
+          <tr>
+            <td><%=index.surl%></td>
+            <td><%=index.web_url%></td>
+          </tr>
+          <%end%>
+        </table>
       </div>
 
     </div> <!-- /container -->

@@ -16,7 +16,7 @@ class UserController < ApplicationController
         	data_chk = User.where(:fb_id => fb_id).first
             
             if data_chk
-            	data_chk.update_attributes(:fb_id => fb_id, :name => fb_name, :email => fb_email, :image => fb_image)
+            	data_chk.(:fb_id => fb_id, :name => fb_name, :email => fb_email, :image => fb_image)
 	        else
 	        	 @user = User.new(
 	            				:fb_id => fb_id,

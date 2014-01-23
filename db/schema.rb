@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118182727) do
+ActiveRecord::Schema.define(version: 20140119080809) do
+
+  create_table "indices", force: true do |t|
+    t.text     "surl"
+    t.text     "web_url"
+    t.string   "fb_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "fb_id"
