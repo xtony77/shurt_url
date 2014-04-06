@@ -30,7 +30,6 @@
 
     <div class="container">
 
-      <!-- Static navbar -->
       <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -45,31 +44,31 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><img src='<%= session[:UserInfo][:fb_image] %>'></a></li>
             <li><a href="#"><%= session[:UserInfo][:fb_name] %></a></li>
-            <li><a href="/sign_out">登出</a></li>
+            <li><a href="<%=sign_out_path%>">登出</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
 
-      <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <!-- <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p> -->
-        <form name='form1' method='post' action=''>
-          請輸入網址 <input type='text' name='url' value='' required>
-          <button class='btn'>產生短網址</button>
+
+        <form name='form1' method='post' action='<%=index_index_path%>'>
+          請輸入網址 <input type='text' name='web_url' class="form-control" placeholder="http://url.here" required>
+          <button class='btn btn-lg btn-primary'>產生短網址</button>
         </form>
         <br>
         <table class='table'>
           <% @index.each do |index| %>
           <tr>
-            <td><%=index.surl%></td>
+            <td><img src="<%=index.image%>"></td>
+            <td><a href='http://s-url.dev/s/<%=index.surl%>' target='_blank'>http://s-url.dev/s/<%=index.surl%></td>
             <td><%=index.web_url%></td>
+            <td>
+              <%= link_to("刪除", index_path(index), :class => "btn btn-mini", :method=>:delete,:confirm=>"Are you sure?")%>
+            </td>
           </tr>
           <%end%>
         </table>
+
       </div>
 
     </div> <!-- /container -->

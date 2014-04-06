@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 	def index
 		if session[:UserInfo]
-			redirect_to index_index_path
+			# redirect_to index_index_path
 		end
 	end
 	
@@ -16,7 +16,7 @@ class UserController < ApplicationController
         	data_chk = User.where(:fb_id => fb_id).first
             
             if data_chk
-            	data_chk.(:fb_id => fb_id, :name => fb_name, :email => fb_email, :image => fb_image)
+            	data_chk.update_attributes(:fb_id => fb_id, :name => fb_name, :email => fb_email, :image => fb_image)
 	        else
 	        	 @user = User.new(
 	            				:fb_id => fb_id,
@@ -36,13 +36,8 @@ class UserController < ApplicationController
 	end
 
 	def sign_out
-		session.delete(:UserInfo)
+        session.delete(:UserInfo)
         reset_session
         redirect_to root_path
-	end
-
-	private
-	def user_params
-		params.require(:user).permit(:name, :email, :fb_image)
 	end
 end

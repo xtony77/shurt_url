@@ -37,6 +37,7 @@ gem 'simple_form'
 gem "settingslogic"
 gem "omniauth"
 gem "omniauth-facebook"
+gem "meta_request"
 
 
 # Use ActiveModel has_secure_password

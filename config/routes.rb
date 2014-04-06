@@ -1,13 +1,17 @@
 SUrl::Application.routes.draw do
 
-  root "user#index"
+  root "index#index"
 
+  # match '/:code' => 'index#turn_url', :via => 'get'
+  get '/:chk/:code', to: 'index#turn_url', as: 'turn_url'
   match 'auth/:provider/callback' => 'user#login', :via => 'get'
 
   match 'user' => 'user#index', :via => 'get'
   match 'sign_out' => 'user#sign_out', :via => 'get'
 
   resources :index
+
+  get '/error404', to: 'index#error404', as: 'error404'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
